@@ -1,0 +1,24 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
+    container_name: enterprise-mcp-api
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY}
+    ports:
+      - "8080:8000"
+
+  mcp-gateway:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["python", "-m", "app.mcp_gateway.server"]
+    container_name: enterprise-mcp-gateway
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+      JWT_SECRET_KEY: ${JWT_SECRET_KEY}
+    ports:
+      - "8001:8001"

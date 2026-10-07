@@ -1,0 +1,148 @@
+policies:
+
+  # ==========================================================
+  # EXISTING POLICIES
+  # ==========================================================
+
+  - name: support_customer_read
+    role: support
+    tool: customer_get
+    risk: LOW
+    action: ALLOW
+
+  - name: viewer_health_check
+    role: viewer
+    tool: health_check
+    risk: LOW
+    action: ALLOW
+
+  - name: admin_low_medium
+    role: admin
+    risk: LOW
+    action: ALLOW
+
+  - name: admin_high_risk
+    role: admin
+    risk: HIGH
+    action: REQUIRE_APPROVAL
+
+
+  # ==========================================================
+  # CUSTOMER
+  # ==========================================================
+
+  - name: support_customer_update
+    role: support
+    tool: customer_update
+    risk: MEDIUM
+    action: ALLOW
+
+  - name: admin_customer_update
+    role: admin
+    tool: customer_update
+    risk: MEDIUM
+    action: ALLOW
+
+  - name: admin_customer_delete
+    role: admin
+    tool: customer_delete
+    risk: HIGH
+    action: REQUIRE_APPROVAL
+
+
+  # ==========================================================
+  # TICKET
+  # ==========================================================
+
+  - name: support_ticket_get
+    role: support
+    tool: ticket_get
+    risk: LOW
+    action: ALLOW
+
+  - name: viewer_ticket_get
+    role: viewer
+    tool: ticket_get
+    risk: LOW
+    action: ALLOW
+
+  - name: support_ticket_create
+    role: support
+    tool: ticket_create
+    risk: MEDIUM
+    action: ALLOW
+
+  - name: admin_ticket_create
+    role: admin
+    tool: ticket_create
+    risk: MEDIUM
+    action: ALLOW
+
+
+  # ==========================================================
+  # ORDER
+  # ==========================================================
+
+  - name: support_order_get
+    role: support
+    tool: order_get
+    risk: LOW
+    action: ALLOW
+
+  - name: viewer_order_get
+    role: viewer
+    tool: order_get
+    risk: LOW
+    action: ALLOW
+
+  - name: support_order_status
+    role: support
+    tool: order_status
+    risk: LOW
+    action: ALLOW
+
+  - name: viewer_order_status
+    role: viewer
+    tool: order_status
+    risk: LOW
+    action: ALLOW
+
+
+  # ==========================================================
+  # KNOWLEDGE
+  # ==========================================================
+
+  - name: support_knowledge_search
+    role: support
+    tool: knowledge_search
+    risk: LOW
+    action: ALLOW
+
+  - name: viewer_knowledge_search
+    role: viewer
+    tool: knowledge_search
+    risk: LOW
+    action: ALLOW
+
+  - name: support_knowledge_retrieve
+    role: support
+    tool: knowledge_retrieve
+    risk: LOW
+    action: ALLOW
+
+  - name: viewer_knowledge_retrieve
+    role: viewer
+    tool: knowledge_retrieve
+    risk: LOW
+    action: ALLOW
+
+
+  # ==========================================================
+  # GOVERNANCE
+  # ==========================================================
+
+  - name: admin_audit_search
+    role: admin
+    tool: audit_search
+    risk: MEDIUM
+    action: ALLOW
